@@ -1,28 +1,3 @@
-// // sanity/sanity.query.ts
-
-// import { groq } from "next-sanity";
-// import client from "./sanity.client";
-
-// export async function getProfile() {
-//   return client.fetch(
-//     groq`*[_type == "profile"]{
-//       _id,
-//       fullName,
-//       headline,
-//       profileImage {alt, "image": asset->url},
-//       shortBio,
-//       location,
-//       fullBio,
-//       email,
-//       "resumeURL": resumeURL.asset->url,
-//       socialLinks,
-//       skills
-//     }`
-//   );
-// }
-
-// console.log(getProfile())
-
 import { groq } from "next-sanity";
 import client from "./sanity.client";
 
@@ -114,25 +89,39 @@ export async function getSingleProject(slug:string) {
 
 //Projects
 
-export async function getProjects() {
-  try {
-    const Projects = await client.fetch(
-      groq`*[_type == "project"]{
-        _id, 
-        name,
-        "slug": slug.current,
-        tagline,
-        "logo": logo.asset->url,
-      }`
-    );
-    return Projects;
-  } catch (error) {
-    console.error("Error fetching profile:", error);
-    return null;
-  }
-}
+// export async function getProjects() {
+//   try {
+//     const ProjectsData = await client.fetch(
+//       groq`*[_type == "project"]{
+//         _id, 
+//         name,
+//         "slug": slug.current,
+//         tagline,
+//         "logo": logo.asset->url,
+//       }`
+//     );
+//     console.log(ProjectsData)
+//     return ProjectsData;
+//   } catch (error) {
+//     console.error("Error fetching profile:", error);
+//     return null;
+//   }
+// }
 
-(async () => {
-  const Project = await getProjects();
-})();
+// (async () => {
+//   const Projects = await getProjects();
+  
+// })();
+
+export async function getProjects() {
+  return client.fetch(
+    groq`*[_type == "project"]{
+      _id, 
+      name,
+      "slug": slug.current,
+      tagline,
+      "logo": logo.asset->url,
+    }`
+  );
+}
 

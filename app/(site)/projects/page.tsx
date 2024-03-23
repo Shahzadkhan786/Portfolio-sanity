@@ -5,7 +5,7 @@ import type { ProjectType } from "@/types";
 
 export default async function Project() {
   const projects: ProjectType[] = await getProjects();
-
+    
   return (
     <main className="max-w-7xl mx-auto md:px-16 px-6">
       <section className="max-w-2xl mb-16">

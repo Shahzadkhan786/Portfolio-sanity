@@ -30,6 +30,8 @@ export type JobType = {
   endDate: Date;
 }
 
+// types/index.ts
+
 export type ProjectType = {
   _id: string;
   name: string;
