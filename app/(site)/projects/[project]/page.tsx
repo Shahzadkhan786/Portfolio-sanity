@@ -52,8 +52,8 @@ export default async function Project({ params }: Props) {
 
         <Image
           className="rounded-xl border border-zinc-800"
-          width={900}
-          height={460}
+          width={550}
+          height={330}
           src={project.coverImage?.image || fallBackImage}
           alt={project.coverImage?.alt || project.name}
         />
